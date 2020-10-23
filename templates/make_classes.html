@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit Staff</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style> 
+
+      form {
+        width: 250px;
+        height: auto;
+        padding: 10px;
+      }
+
+      .form-control {
+        padding: 22px;
+        border-radius: 0;
+        background: white;
+      }
+      .form-control:hover {
+        background-color: rgba(173, 168, 168);
+      }
+  body {
+    background-repeat: no-repeat;
+    background: url("mk_wlp.jpg");
+  }
+ 
+/*background iamge ko body me dalna div me nhi
+ body {
+        background: url("background.jpg");
+        background-size: cover;
+        font-family: serif;
+      } example hai isko style me dal de na image ka naam change kar lena bas
+*/
+  </style>
+
+<body>
+
+<nav class="navbar navbar-expand-sm bg-light navbar-light">
+  <a class="navbar-brand" href="#"><img src="logo2.png" alt="logo dalna yaha pe" style="width:40xp;height:40px"> Learning App</a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span> </button>
+  <div class = "navbar-collapse collapse" id="collapsibleNavbar">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item ">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Organization's account</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Log out</a>
+    </li>
+  </ul>
+</div>
+</nav>
+<div class="container d-flex justify-content-center">
+            <form>
+              <p class="mt-5 text-center" style="font-size:2.2rem;font-weight: 100;">Make Classes</p>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Subject" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Teacher" />
+                  </div>
+                  <div class="form-group">
+                    <textarea placeholder="Subject Description" class="form-control"></textarea>
+                  </div>
+          
+                  <div class="form-group text-center">
+                    <input name="" id="" class="btn btn-outline-secondary" type="button" value="Make Class">
+                  </div>
+    </div>
+    </body>
+    </html>
