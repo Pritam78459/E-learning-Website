@@ -9,14 +9,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-    <body>
+    <body style = "background-image: url({{ image_file }});background-size: cover">
 	
                
-        
-                <div class="btn-group btn-group-lg" style="margin-left: 45%;margin-top: 300px ">
-                    <a href = "{{url_for('student_login')}}"><button type="button" class="btn btn-primary">Student</button></a>
-                    <a href = "{{url_for('teacher_login')}}"><button type="button" class="btn btn-primary">Teacher</button></a>
-                    <a href = "{{url_for('organization_login')}}"><button type="button" class="btn btn-primary">Organization</button></a>
+                <h1 style="font-size:4vw; margin-left: 20.8%;margin-top: 19%;color:lightgrey;font-family:optima">Get Started with our learning system !!!</h1>
+                <div class="btn-group btn-group-lg" style="margin-left: 42%;margin-top: 1%">
+                    <a href = "{{url_for('student_login')}}"><button type="button" class="btn btn-lg btn-outline-secondary">Student</button></a>
+                    <a href = "{{url_for('teacher_login')}}"><button type="button" class="btn btn-lg btn-outline-secondary">Teacher</button></a>
+                    <a href = "{{url_for('organization_login')}}"><button type="button" class="btn btn-lg btn-outline-secondary">Organization</button></a>
                 </div>
             
     </body>

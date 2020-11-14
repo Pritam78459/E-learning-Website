@@ -14,8 +14,8 @@
                 margin: auto;
             }
             .form {
-                background: #ffffff;
-                max-width: 760px;
+                background: lightgrey;
+                max-width: 100%;
                 padding: 45px;
                 text-align: left;
                 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
@@ -30,7 +30,7 @@
                 font-size: 14px;
             }
             .form input#submit {
-                background-color: DodgerBlue;
+                background-color: darkgrey;
                 width: 100%;
                 border: 0;
                 padding: 15px;
@@ -38,11 +38,11 @@
                 font-size: 14px;
             }
             .form input#submit:hover {
-  				background-color: RoyalBlue;
+  				background-color: grey;
 			}
 
             body {
-                background-image:url('{{ background }}');
+                background-image:url('{{ image_file }}');
 				background-repeat:no-repeat;
 				background-attachment:fixed;
 				background-size:cover;
@@ -54,7 +54,7 @@
   				color: white;
   				padding: 12px 30px;
   				cursor: pointer;
-  				font-size: 20px;
+  				font-size: 40px;
 			}
 
 
@@ -97,19 +97,6 @@
                         </div>
                     {% else %}
                         {{ form.username(class="form-control form-control-lg") }}
-                    {% endif %}
-                    </div>
-                    <div class = "form-group">
-                        {{form.email.label(class = "form-control-label")}}
-                        {% if form.email.errors %}
-                        {{ form.email(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.email(class="form-control form-control-lg") }}
                     {% endif %}
                     </div>
                     <div class = "form-group">

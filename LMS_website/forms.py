@@ -6,7 +6,6 @@ from wtforms.validators import DataRequired,Length,Email,EqualTo
 class StudentLogin(FlaskForm):
 
 	username = StringField("username",validators = [DataRequired(), Length(min = 2, max = 20	)])
-	email = StringField("Email",validators = [DataRequired(), Email()])
 	password = PasswordField("password",validators = [DataRequired()])
 	submit = SubmitField("Student Login")
 
@@ -14,7 +13,6 @@ class StudentLogin(FlaskForm):
 class TeacherLogin(FlaskForm):
 
 	username = StringField("username",validators = [DataRequired(), Length(min = 2 , max = 20	)])
-	email = StringField("email",validators = [DataRequired(), Email()])
 	password = PasswordField("password",validators = [DataRequired()])
 	submit = SubmitField("Teacher Login")
 
@@ -22,9 +20,17 @@ class TeacherLogin(FlaskForm):
 class OrganizationLogin(FlaskForm):
 
 	username = StringField("username",validators = [DataRequired(), Length(min = 2 , max = 20	)])
-	email = StringField("email",validators = [DataRequired(), Email()])
 	password = PasswordField("password",validators = [DataRequired()])
 	submit = SubmitField("Organization Login")
+
+
+class OrganizationRegister(FlaskForm):
+
+	username = StringField("username",validators = [DataRequired(), Length(min = 2 , max = 20	)])
+	email = StringField("email",validators = [DataRequired(), Email()])
+	password = PasswordField("password",validators = [DataRequired()])
+	confirm_password = PasswordField("confirm_password",validators = [DataRequired(),EqualTo('password')])
+	submit = SubmitField("Create Account")
 
 
 class AddStaff(FlaskForm):

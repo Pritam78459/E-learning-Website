@@ -14,7 +14,7 @@
                 margin: auto;
             }
             .form {
-                background: #ffffff;
+                background: lightgrey;
                 max-width: 760px;
                 padding: 45px;
                 text-align: left;
@@ -30,7 +30,7 @@
                 font-size: 14px;
             }
             .form input#submit {
-                background-color: DodgerBlue;
+                background-color: darkgrey;
                 width: 100%;
                 border: 0;
                 padding: 15px;
@@ -38,36 +38,36 @@
                 font-size: 14px;
             }
             .form input#submit:hover {
-          background-color: RoyalBlue;
-      }
+                background-color: grey;
+            }
 
             body {
-                background-image:url('light_bg.jpg');
-        background-repeat:no-repeat;
-        background-attachment:fixed;
-        background-size:cover;
+                background-image:url('{{ image_file }}');
+                background-repeat:no-repeat;
+                background-attachment:fixed;
+                background-size:cover;
             
 }
             .btn {
-          background-color: DodgerBlue;
-          border: none;
-          color: white;
-          padding: 12px 30px;
-          cursor: pointer;
-          font-size: 20px;
-      }
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 12px 30px;
+                cursor: pointer;
+                font-size: 40px;
+            }
 
 
-      .btn:hover {
-          background-color: RoyalBlue;
-      }
+            .btn:hover {
+                background-color: RoyalBlue;
+            }
             .btn1 {font-size: 10px;}
         </style>
     </head>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="#"><img src="logo2.png" style="width:40xp;height:40px"> Learning App</a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+  <a class="navbar-brand" href="#"> Learning App</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span> </button>
   <div class = "navbar-collapse collapse" id="collapsibleNavbar">
   <ul class="navbar-nav ml-auto">
@@ -80,6 +80,7 @@
   </ul>
 </div>
 </nav>
+<br>
         {% with messages = get_flashed_messages(with_categories = true) %}
   {% if messages %}
   {% for category, message in messages %}

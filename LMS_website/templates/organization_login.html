@@ -14,7 +14,7 @@
                 margin: auto;
             }
             .form {
-                background: #ffffff;
+                background: lightgrey;
                 max-width: 760px;
                 padding: 45px;
                 text-align: left;
@@ -30,7 +30,7 @@
                 font-size: 14px;
             }
             .form input#submit {
-                background-color: DodgerBlue;
+                background-color: darkgrey;
                 width: 100%;
                 border: 0;
                 padding: 15px;
@@ -38,11 +38,11 @@
                 font-size: 14px;
             }
             .form input#submit:hover {
-                background-color: RoyalBlue;
+                background-color: grey;
             }
 
             body {
-                background-image:url('light_bg.jpg');
+                background-image:url('{{ image_file }}');
                 background-repeat:no-repeat;
                 background-attachment:fixed;
                 background-size:cover;
@@ -54,7 +54,7 @@
                 color: white;
                 padding: 12px 30px;
                 cursor: pointer;
-                font-size: 20px;
+                font-size: 40px;
             }
 
 
@@ -73,6 +73,7 @@
   {% endfor %}
   {% endif %}
 {% endwith %}
+</div>
 	    <div class="login-page">
 
             
@@ -95,19 +96,6 @@
                     {% endif %}
                     </div>
                     <div class = "form-group">
-                        {{form.email.label(class = "form-control-label")}}
-                        {% if form.email.errors %}
-                        {{ form.email(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.email(class="form-control form-control-lg") }}
-                    {% endif %}
-                    </div>
-                    <div class = "form-group">
                         {{form.password.label(class = "form-control-label")}}
                         {% if form.password.errors %}
                         {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -126,6 +114,11 @@
                     {{form.submit(class= "btn btn-outline-info")}}
                 </div>    
                 </form>
+                <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{{url_for('organization_register')}}">Sign Up Now</a>
+        </small>
+    </div>
             </div>
         </div>
     </body>
