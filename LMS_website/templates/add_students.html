@@ -72,11 +72,16 @@
   <div class = "navbar-collapse collapse" id="collapsibleNavbar">
   <ul class="navbar-nav ml-auto">
     <li class="nav-item ">
-      <a class="nav-link" href="{{url_for('teacher_details')}}">Home</a>
+      <a class="nav-link" href="{{url_for('teacher_browse_catalouge')}}">Home</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Log out</a>
-    </li>
+    {% if current_user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('teacher_details')}}">{{current_user.teacher_name}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('teacher_logout')}}">Logout</a>
+      </li>
+    {% endif %}
   </ul>
 </div>
 </nav>

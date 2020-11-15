@@ -83,16 +83,16 @@
                 <fieldset class = "form-group">
                     <legend class= "border-bottom mb-4" >Login to your account</legend>
                     <div class = "form-group">
-                        {{form.username.label(class = "form-control-label")}}
-                        {% if form.username.errors %}
-                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        {{form.email.label(class = "form-control-label")}}
+                        {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.username.errors %}
+                            {% for error in form.email.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username(class="form-control form-control-lg") }}
+                        {{ form.email(class="form-control form-control-lg") }}
                     {% endif %}
                     </div>
                     <div class = "form-group">
@@ -117,6 +117,16 @@
                 <div class="border-top pt-3">
         <small class="text-muted">
             Need An Account? <a class="ml-2" href="{{url_for('organization_register')}}">Sign Up Now</a>
+        </small>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Are you a teacher? <a class="ml-2" href="{{url_for('teacher_login')}}">Login as a teacher</a>
+        </small>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Are you a student? <a class="ml-2" href="{{url_for('student_login')}}">Login as a student</a>
         </small>
     </div>
             </div>
