@@ -24,17 +24,17 @@
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span> </button>
   <div class = "navbar-collapse collapse" id="collapsibleNavbar">
   <ul class="navbar-nav ml-auto">
+    {% if current_user.oranization_name %}
     <li class="nav-item ">
       <a class="nav-link" href="{{url_for('organization')}}">Home</a>
     </li>
-    {% if current_user.is_authenticated %}
+    
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('organization')}}">{{current_user.organization_name}}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('organization_logout')}}">Logout</a>
       </li>
-    {% endif %}
   </ul>
 </div>
 </nav>
@@ -60,7 +60,11 @@
     <a href = "{{url_for('edit_staff_details')}}"><button type="button" class="btn btn-secondary">Edit Staff details</button>
   </div> 
 </div>
-
+{% else %}
+  </div>
+<h1 class="display-3" style="text-align: center;margin-top: 10%;color: blanchedalmond;">Page not accesible login through an organization account</h1>
+</div>
+{% endif %}
 
 </body>
 </html>
