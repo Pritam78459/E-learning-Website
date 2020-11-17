@@ -24,6 +24,7 @@
     </style>
   </head>
   <body>
+    {% if current_user.student_name %}
     <div class="container top p-2 mt-5">
       <h4 class="display-4 text-center">Course Name</h4>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
@@ -106,5 +107,13 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    {% else %}
+<div class="card" style = "max-width: 50%;margin-left: 25%;margin-top: 20%;" >
+  <div class = "card-header bg-danger">Inappropriate account</div>
+  <div class="card-body"><p>Sorry This page is not accesible! you can logout and login through a student's account.</p><br>
+    <a href = "{{url_for('logout')}}" ><button type="button" class="btn btn-secondary">Logout</button></a>
+  </div>
+</div>
+{% endif %}
   </body>
 </html>

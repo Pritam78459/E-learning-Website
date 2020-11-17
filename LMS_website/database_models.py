@@ -28,7 +28,6 @@ class Student_identity_details(db.Model,UserMixin):
 	student_email = db.Column(db.String(40),nullable = False)
 	subjects = db.relationship('Subject_details')
 
-
 	def __repr__(self):
 		return f"Student:'{self.id}','{self.student_name}'"
 

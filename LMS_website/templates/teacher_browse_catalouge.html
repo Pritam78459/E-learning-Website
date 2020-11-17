@@ -10,6 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: grey">
+  {% if current_user.teacher_name %}
 <div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
@@ -57,6 +58,13 @@
     
 
   </div>
-
+  {% else %}
+  <div class="card" style = "max-width: 50%;margin-left: 25%;margin-top: 20%;" >
+    <div class = "card-header bg-danger">Inappropriate account</div>
+    <div class="card-body"><p>Sorry This page is not accesible! you can logout and login through an teacher's account.</p><br>
+      <a href = "{{url_for('logout')}}" ><button type="button" class="btn btn-secondary">Logout</button></a>
+    </div>
+  </div>
+  {% endif %}
 </body>
 </html>

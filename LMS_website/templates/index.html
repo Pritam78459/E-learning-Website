@@ -41,6 +41,7 @@
     <script src="index.js"></script>
   </head>
   <body style="background: black; color: white">
+    {% if current_user.student_name %}
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
   <a class="navbar-brand" href="#"> Learning App</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span> </button>
@@ -182,5 +183,13 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    {% else %}
+<div class="card" style = "max-width: 50%;margin-left: 25%;margin-top: 20%; background-color: antiquewhite;color: black;" >
+  <div class = "card-header bg-danger">Inappropriate account</div>
+  <div class="card-body"><p>Sorry This page is not accesible! you can logout and login through a student's account.</p><br>
+    <a href = "{{url_for('logout')}}" ><button type="button" class="btn btn-secondary">Logout</button></a>
+  </div>
+</div>
+{% endif %}
   </body>
 </html>

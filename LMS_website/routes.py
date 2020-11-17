@@ -236,6 +236,11 @@ def student_logout():
 	logout_user()
 	return redirect(url_for('student_login'))
 
+@app.route("/logout")
+def logout():
+	logout_user()
+	return redirect(url_for('main'))
+
 
 
 # ------ other pages ------

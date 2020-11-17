@@ -18,13 +18,13 @@
   }
   </style>
 <body>
-
+  {% if current_user.organization_name %}
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
   <a class="navbar-brand" href="#"> Learning App</a>
   <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar"><span class="navbar-toggler-icon"></span> </button>
   <div class = "navbar-collapse collapse" id="collapsibleNavbar">
   <ul class="navbar-nav ml-auto">
-    {% if current_user.oranization_name %}
+    
     <li class="nav-item ">
       <a class="nav-link" href="{{url_for('organization')}}">Home</a>
     </li>
@@ -61,8 +61,11 @@
   </div> 
 </div>
 {% else %}
+<div class="card" style = "max-width: 50%;margin-left: 25%;margin-top: 20%;" >
+  <div class = "card-header bg-danger">Inappropriate account</div>
+  <div class="card-body"><p>Sorry This page is not accesible! you can logout and login through an organization administrator account.</p><br>
+    <a href = "{{url_for('teacher_logout')}}" ><button type="button" class="btn btn-secondary">Logout</button></a>
   </div>
-<h1 class="display-3" style="text-align: center;margin-top: 10%;color: blanchedalmond;">Page not accesible login through an organization account</h1>
 </div>
 {% endif %}
 
