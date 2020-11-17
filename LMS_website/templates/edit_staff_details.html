@@ -104,16 +104,16 @@
                 <fieldset class = "form-group">
                     <legend class= "border-bottom mb-4" >Edit Teacher details</legend>
                     <div class = "form-group">
-                        {{form.current_userid.label(class = "form-control-label")}}
-                        {% if form.current_userid.errors %}
-                        {{ form.current_userid(class="form-control form-control-lg is-invalid") }}
+                        {{form.current_user_id.label(class = "form-control-label")}}
+                        {% if form.current_user_id.errors %}
+                        {{ form.current_user_id(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.current_userid.errors %}
+                            {% for error in form.current_user_id.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.current_userid(class="form-control form-control-lg") }}
+                        {{ form.current_user_id(class="form-control form-control-lg") }}
                     {% endif %}
                     </div>
                     <div class = "form-group">
@@ -142,32 +142,7 @@
                         {{ form.new_email(class="form-control form-control-lg") }}
                     {% endif %}
                     </div>
-                    <div class = "form-group">
-                        {{form.new_password.label(class = "form-control-label")}}
-                        {% if form.new_password.errors %}
-                        {{ form.new_password(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.new_password.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.new_password(class="form-control form-control-lg") }}
-                    {% endif %}
-                    </div>
-                     <div class = "form-group">
-                        {{form.new_confirm_password.label(class = "form-cnew_ontrol-label")}}
-                        {% if form.new_confirm_password.errors %}
-                        {{ form.new_confirm_password(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.new_confirm_password.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.new_confirm_password(class="form-control form-control-lg") }}
-                    {% endif %}
-                    </div>
+                    
 
                  </fieldset>
                  <div class = "form-group">

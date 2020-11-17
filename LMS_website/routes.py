@@ -1,8 +1,8 @@
 import secrets
-from flask import render_template, flash, redirect,url_for
+from flask import render_template, flash, redirect,url_for, request
 from LMS_website import app, db, bcrypt
 from LMS_website.database_models import Student_identity_details, Teacher_identity_details, Subject_details, Organization_details, SubjectContents 
-from LMS_website.forms import StudentLogin, TeacherLogin, OrganizationLogin, OrganizationRegister, AddStaff, EditStaffDetails, RemoveStaff, AddStudent, RemoveStudent, MakeClasses, EditStudentDetails
+from LMS_website.forms import StudentLogin, TeacherLogin, OrganizationLogin, OrganizationRegister, AddStaff, EditStaffDetails, RemoveStaff, AddStudent, RemoveStudent, MakeClasses, EditStudentDetails, OrganizationUpdate
 from flask_login import login_user, current_user, logout_user, login_required
 
 db.create_all()
@@ -152,7 +152,12 @@ def remove_students():
 def edit_students_details():
 	form = EditStudentDetails()
 	if form.validate_on_submit():
-		flash('Student details changed successfully', 'success')
+		student = Student_identity_details.query.filter_by(id = form.current_user_id.data ).first()
+		student.student_name = form.new_username.data
+		student.student_email = form.new_email.data
+		db.session.commit()
+		flash(f'Student account has been updated!', 'success')
+		return redirect(url_for('edit_students_details'))
 	background_image = url_for('static',filename = "images/" + "students.jpeg")
 	return render_template("edit_students_details.html",form = form,image_file = background_image)
 
@@ -192,7 +197,12 @@ def edit_staff():
 def edit_staff_details():
 	form = EditStaffDetails()
 	if form.validate_on_submit():
-		flash('Teacher details changed successfully', 'success')
+		teacher = Teacher_identity_details.query.filter_by(id = form.current_user_id.data ).first()
+		teacher.teacher_name = form.new_username.data
+		teacher.teacher_email = form.new_email.data
+		db.session.commit()
+		flash(f'Teacher account has been updated!', 'success')
+		return redirect(url_for('edit_staff_details'))
 	background_image = url_for('static',filename = "images/" + "organization3.jpg")
 	return render_template("edit_staff_details.html",form = form, image_file = background_image)
 
@@ -215,6 +225,28 @@ def remove_staff():
 		flash('Teacher remove successfully', 'success')
 	background_image = url_for('static',filename = "images/" + "organization3.jpg")
 	return render_template("remove_staff.html",form = form,image_file = background_image)
+
+# organization account
+@app.route("/organization_account")
+@login_required
+def organization_account():
+	return render_template("organization_account.html")
+
+@app.route("/organization_update",methods = ["GET","POST"])
+def organization_update():
+	form  = OrganizationUpdate()
+	if form.validate_on_submit():
+		current_user.organization_name = form.username.data
+		current_user.organization_email = form.email.data
+		db.session.commit()
+		flash(f'Your account has been updated!', 'success')
+		return redirect(url_for('organization_update'))
+	elif request.method == 'GET':
+		form.username.data = current_user.organization_name
+		form.email.data = current_user.organization_email
+	background_image = url_for('static',filename = "images/" + "23467.jpg")
+	return render_template("organization_update.html",form = form,image_file = background_image)
+
 
 
 # ------ logout pages ------
